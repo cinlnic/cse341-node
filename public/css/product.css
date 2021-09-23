@@ -1,0 +1,118 @@
+/* product forms */
+.product-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+}
+
+.form-control {
+    margin: 1rem 0;
+}
+
+.form-control label,
+.form-control input, 
+.form-control select {
+    display: block;
+    width: 100%;
+}
+
+.form-control label {
+    margin-bottom: .5rem;
+}
+
+.form-control input {
+    border: 1px solid black;
+    font: inherit;
+    border-radius: 4px;
+    padding: .5rem;
+}
+
+.form-control select {
+    font-family: inherit;
+    padding: .5rem;
+}
+
+button {
+    font: inherit;
+    border: 1px solid #f59554;
+    color: white;
+    background: #f59554;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: .5rem;
+}
+
+button:hover,
+button:active {
+    background-color: #dd6f25;
+    color: white;
+}
+
+/* shop page items */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    grid-row-gap: 2rem;
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.card__header,
+.card__content {
+  padding: 1rem;
+}
+
+.card__header h1,
+.card__header p,
+.card__content h1,
+.card__content h2,
+.card__content p {
+  margin: 0;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__image img {
+  width: 100%;
+}
+
+.card__actions {
+    padding: 1rem;
+    text-align: center;
+}
+
+.card__actions button,
+.card__actions a {
+    margin: 0 0.25rem;
+}
+
+.product-item, .card-content {
+    width: 20rem;
+    max-width: 95%;
+}
+
+.product__title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.product__author {
+    margin: .5rem 0;
+    text-align: center;
+}
+
+.product__price {
+    text-align: center;
+    color: #4d4d4d;
+    margin-bottom: 0.5rem;
+}
+
+.product__description {
+    text-align: center;
+
+}
