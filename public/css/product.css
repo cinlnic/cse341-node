@@ -40,12 +40,17 @@ button {
     border-radius: 3px;
     cursor: pointer;
     padding: .5rem;
+    margin: auto;
 }
 
 button:hover,
 button:active {
     background-color: #dd6f25;
     color: white;
+}
+
+.btn {
+    text-align: center;
 }
 
 /* shop page items */
