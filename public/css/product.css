@@ -1,57 +1,3 @@
-/* product forms */
-.product-form {
-    width: 20rem;
-    max-width: 90%;
-    margin: auto;
-}
-
-.form-control {
-    margin: 1rem 0;
-}
-
-.form-control label,
-.form-control input, 
-.form-control select {
-    display: block;
-    width: 100%;
-}
-
-.form-control label {
-    margin-bottom: .5rem;
-}
-
-.form-control input {
-    border: 1px solid black;
-    font: inherit;
-    border-radius: 4px;
-    padding: .5rem;
-}
-
-.form-control select {
-    font-family: inherit;
-    padding: .5rem;
-}
-
-button {
-    font: inherit;
-    border: 1px solid #f59554;
-    color: white;
-    background: #f59554;
-    border-radius: 3px;
-    cursor: pointer;
-    padding: .5rem;
-    margin: auto;
-}
-
-button:hover,
-button:active {
-    background-color: #dd6f25;
-    color: white;
-}
-
-.btn {
-    text-align: center;
-}
 
 /* shop page items */
 .grid {
@@ -89,6 +35,8 @@ button:active {
 .card__actions {
     padding: 1rem;
     text-align: center;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .card__actions button,
@@ -120,4 +68,8 @@ button:active {
 .product__description {
     text-align: center;
 
+}
+
+img {
+  width: 25%;
 }

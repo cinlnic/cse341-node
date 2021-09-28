@@ -1,0 +1,39 @@
+.product-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+}
+
+.form-control {
+    margin: 1rem 0;
+}
+
+.form-control label,
+.form-control input, 
+.form-control select,
+.form-control textarea {
+    display: block;
+    width: 100%;
+}
+
+.form-control label {
+    margin-bottom: .5rem;
+}
+
+.form-control input,
+.form-control textarea {
+    border: 1px solid black;
+    font: inherit;
+    border-radius: 4px;
+    padding: .5rem;
+}
+
+.form-control input:focus
+.form-control textarea:focus {
+    outline-color: #4472c2;
+}
+
+.form-control select {
+    font-family: inherit;
+    padding: .5rem;
+}

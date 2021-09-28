@@ -1,43 +1,22 @@
 const path = require('path');
 const express = require('express');
 
-const rootDir = require('../util/path');
+const adminController = require('../controllers/admin');
 
 const router = express.Router();
 
-const products = [];
-
 // /admin/add-product => GET
-router.get('/add-product', (req, res, next) => {
-    res.render('add-product', {
-        pageTitle: 'Add Product', 
-        path: '/admin/add-product'});
-});
+router.get('/add-product', adminController.getAddProduct);
+
+router.get('/products', adminController.getProducts);
 
 // /admin/add-product => POST
-router.post('/add-product', (req, res, next) => {
-    const newProduct = {title: req.body.title, author: req.body.author, description: req.body.description, price: req.body.price}
-    products.push(newProduct);
-    res.redirect('/');
-});
+router.post('/add-product', adminController.postAddProduct);
 
-router.get('/remove-product', (req, res, next) => {
-    res.render('remove-product', {
-        pageTitle: 'Remove Product',
-        path: '/admin/remove-product',
-        prods: products
-    });
-});
+router.get('/edit-product/:productId', adminController.getEditProduct);
 
-router.post('/remove-product', (req, res, next) => {
-    let removeProduct = req.body.removeProduct;
-    const index = products.findIndex(x => x.title === removeProduct);
-    if (index != -1) {
-        products.splice(index, 1);
-    }
-     res.redirect('/');   
-});
+router.post('/edit-product', adminController.postEditProduct);
 
+router.post('/delete-product', adminController.postDeleteProduct);
 
-exports.routes = router;
-exports.products = products;
+module.exports = router;
