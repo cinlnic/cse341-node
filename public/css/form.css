@@ -6,6 +6,9 @@
 
 .form-control {
     margin: 1rem 0;
+    width: 30rem;
+    max-width: 90%;
+    margin: 1rem auto;
 }
 
 .form-control label,
@@ -17,7 +20,7 @@
 }
 
 .form-control label {
-    margin-bottom: .5rem;
+    margin-top: .5rem;
 }
 
 .form-control input,

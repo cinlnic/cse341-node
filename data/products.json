@@ -1,1 +1,46 @@
-[{"id":"0.10675877382142818","title":"Little Women","author":"Louisa May Alcott","imageUrl":"klk","description":"klk","price":"8.99"},{"id":"0.9238767112770461","title":"book 2","author":"da","imageUrl":"d","description":"ddd","price":"8.99"}]
+[
+    {
+        "id": "1",
+        "title": "Little Women",
+        "author": "Louisa May Alcott",
+        "imageUrl": "https://www.publicdomainpictures.net/pictures/40000/velka/antique-books.jpg",
+        "description": "Follow along with four sisters as they find their adventures in everyday life.",
+        "price": "9.99"
+    },
+
+    {
+        "id": "2",
+        "title": "Count of Monte Cristo",
+        "author": "Alexandre Dumas",
+        "imageUrl": "https://www.publicdomainpictures.net/pictures/40000/velka/antique-books.jpg",
+        "description": "A thrilling adventure full of mystery and intrigue, with a little romance thrown in.",
+        "price": "12.99"
+    },
+
+    {
+        "id": "3",
+        "title": "The Adventures of Tom Swayer",
+        "author": "Mark Twain",
+        "imageUrl": "https://www.publicdomainpictures.net/pictures/40000/velka/antique-books.jpg",
+        "description": "A story of growing, sure to entertain everyone.",
+        "price": "5.99"
+    },
+
+    {
+        "id": "4",
+        "title": "The Time Machine",
+        "author": "H.G Wells",
+        "imageUrl": "https://www.publicdomainpictures.net/pictures/40000/velka/antique-books.jpg",
+        "description": "Time travel, future societies, and adventure all rolled into one great read!",
+        "price": "7.99"
+    },
+
+    {
+        "id": "5",
+        "title": "Twenty Thousand Leagues Under the Sea",
+        "author": "Jules Verne",
+        "imageUrl": "https://www.publicdomainpictures.net/pictures/40000/velka/antique-books.jpg",
+        "description": "Experience the underwater world as never before in this thrilling adventure.",
+        "price": "10.99"
+    }
+]

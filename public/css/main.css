@@ -103,7 +103,7 @@ form {
 .mobile-nav__item a:active,
 .mobile-nav__item a:hover,
 .mobile-nav__item a.active {
-  background: #00695c;
+  background: #0f8585;
   color: white;
   border-radius: 3px;
 }
