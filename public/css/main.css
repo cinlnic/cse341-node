@@ -35,8 +35,10 @@ form {
 
 .main-header__nav {
   height: 100%;
-  display: none;
+  width: 100%;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .main-header__item-list {
@@ -168,6 +170,16 @@ a.btn {
   text-align: center;
 }
 
+.user-message {
+  margin: auto;
+  width: 90%;
+  color: #dd6f25;
+}
+
+.user-message--error {
+  color: red;
+}
+
 
 @media (min-width: 768px) {
   .main-header__nav {
@@ -176,6 +188,10 @@ a.btn {
 
   #side-menu-toggle {
     display: none;
+  }
+
+  .user-message {
+    width: 30rem;  
   }
 }
 
