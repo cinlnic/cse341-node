@@ -2,10 +2,13 @@ const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
 const sendGridTrans = require('nodemailer-sendgrid-transport');
 const User = require('../models/user');
+require('dotenv').config();
+
+const EMAIL_API = process.env.EMAIL_API;
 
 const transporter = nodemailer.createTransport(sendGridTrans({
     auth: {
-        api_key: "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"
+        api_key: EMAIL_API
     }
 }))
 
@@ -69,8 +72,9 @@ exports.getSignup = (req, res, next) => {
 };
 
 exports.postSignup = (req, res, next) => {
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
     const email = req.body.email;
-    const username = req.body.username;
     const password = req.body.password;
     const confirmPassword = req.body.confirmPassword; 
     User.findOne({email: email})
@@ -83,8 +87,9 @@ exports.postSignup = (req, res, next) => {
                 .hash(password, 12)
                 .then(hashedPassword => {
                     const user = new User({
+                        firstName : firstName,
+                        lastName: lastName,
                         email: email,
-                        username: username, 
                         password: hashedPassword,
                         cart: { items: [] }
                     });
