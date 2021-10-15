@@ -13,12 +13,12 @@ const PORT = process.env.PORT || 5000;
 const errorController = require('./controllers/error');
 const User = require('./models/user');
 
-const MONGOODB_URL = process.env.MONGOODB_URL || "mongodb+srv://cse341-node:jbiD2LdjtBdQrKr6@cluster0.lxabu.mongodb.net/shop"
+const MONGODB_URL = process.env.MONGODB_URL || "mongodb+srv://cse341-node:jbiD2LdjtBdQrKr6@cluster0.lxabu.mongodb.net/shop"
 const csrfProtection = csrf();
 const app = express();
 
 const store = new MongoDBStore({
-    uri: MONGOODB_URL,
+    uri: MONGODB_URL,
     collection: 'sessions'
 });
 
@@ -84,7 +84,7 @@ app.use(authRoutes);
 app.use(errorController.get404);
 
 mongoose
-    .connect(MONGOODB_URL, options)
+    .connect(MONGODB_URL, options)
     .then(result => {
        app.listen(PORT); 
     })
