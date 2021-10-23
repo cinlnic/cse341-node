@@ -25,9 +25,14 @@ const userSchema = new Schema ({
         items: [
             { 
                 productId: {type: Schema.Types.ObjectId, ref: 'Product', required: true}, 
-                quantity: {type: Number, required: true}
+                quantity: {type: Number, required: true},
+                productTotal: {type: Number, required: true}
             }
-        ]
+        ],
+        cartTotal: {
+          type: Number, 
+          required: true
+        }
     }
 
 });
@@ -37,21 +42,29 @@ userSchema.methods.addToCart = function(product) {
         return cp.productId.toString() === product._id.toString();
     });
     let newQuantity = 1;
+    let newPrice = product.price;
     const updatedCartItems = [...this.cart.items];
         
     if (cartProductIndex >= 0) {
       newQuantity = this.cart.items[cartProductIndex].quantity + 1;
       updatedCartItems[cartProductIndex].quantity = newQuantity;
+      newPrice = this.cart.items[cartProductIndex].productTotal + newPrice;
+      updatedCartItems[cartProductIndex].productTotal = newPrice;
     } else {
       updatedCartItems.push({
         productId: product._id,
-        quantity: newQuantity
+        quantity: newQuantity,
+        productTotal: newPrice
       });
     }
+    let newCartTotal = updatedCartItems.reduce((t, {productTotal}) => t + productTotal, 0).toFixed(2);
+    
     const updatedCart = {
-      items: updatedCartItems
+      items: updatedCartItems,
+      cartTotal: newCartTotal
     };
     this.cart = updatedCart;
+    console.log(this.cart);
     return this.save();    
 };
 

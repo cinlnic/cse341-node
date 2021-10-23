@@ -55,10 +55,12 @@ exports.getCart = (req, res, next) => {
         .populate('cart.items.productId')
         .then(user => {
             const products = user.cart.items;
+            const total = user.cart.cartTotal;
             res.render('shop/cart', {
                 path: '/cart',
                 pageTitle: 'Your Cart',
-                products: products
+                products: products,
+                cartTotal: total
             });
         })
         .catch(err => {
@@ -103,14 +105,16 @@ exports.postOrder = (req, res, next) => {
         .populate('cart.items.productId')
         .then(user => {
             const products = user.cart.items.map(i => {
-                return {quantity: i.quantity, product: { ...i.productId._doc } };
+                return {quantity: i.quantity, product: { ...i.productId._doc }, productTotal: i.productTotal};
             });
+            orderTotal = products.reduce((t, {productTotal}) => t + productTotal, 0);
             const order = new Order({
                 user: {
                     email: req.user.email,
                     userId: req.user
                 },
-                products: products
+                products: products,
+                orderTotal: orderTotal
             });
             return order.save();
         })

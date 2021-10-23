@@ -154,7 +154,7 @@ exports.postSignup = (req, res, next) => {
                 lastName: lastName,
                 email: email,
                 password: hashedPassword,
-                cart: { items: [] }
+                cart: { items: [], cartTotal: 0 }
             });
             return user.save();
         })
@@ -170,6 +170,7 @@ exports.postSignup = (req, res, next) => {
         .catch(err => {
             const error = new Error(err);
             error.httpStatusCode = 500;
+            console.log(error);
             return next(error);
         });   
 };

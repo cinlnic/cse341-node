@@ -9,6 +9,7 @@
         <% if (errorMessage) { %>
             <div class="user-message user-message--error"><%= errorMessage %></div>
         <% } %>
+        <p class="centered">Please log in or <a href="/signup">create a new account.</a></p>
         <form class="login-form" action="/login" method="POST">
             <div class="form-control">
                 <label for="email">Email</label>
@@ -25,7 +26,7 @@
                 <button class="btn" type="submit">Log In</button>
             </div>
         </form>
-        <div class="centered">
+        <div class="centered reset">
             <a href="/reset">Reset Password</a>
         </div>
         
