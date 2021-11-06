@@ -10,6 +10,9 @@
             <li class="main-header__item">
                 <a class="<%= path === '/products' ? 'active' : '' %>" href="/products">Shop</a>
             </li>
+            <li class="main-header__item">
+                <a class="<%= path === '/json-products' ? 'active' : '' %>" href="/json-products">JSON Products</a>
+            </li>
            <% if (isAuthenticated) { %> 
                 <li class="main-header__item">
                     <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>

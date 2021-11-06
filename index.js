@@ -93,6 +93,7 @@ app.use(errorController.get404);
 
 app.use((error, req, res, next) => {
     res.redirect('/500');
+    console.log(error);
 });
 
 mongoose

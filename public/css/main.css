@@ -193,7 +193,7 @@ h1 {
   border: 1px solid #ddb224;
   color: white;
   background: #ddb224;
-  border-radius: 3px;
+  border-radius: 3px#ddb224;
   cursor: pointer;
   padding: .5rem;
   min-width: 7rem;
@@ -226,6 +226,26 @@ a.btn {
 
 .user-message--error {
   color: red;
+}
+
+.pagination {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #ddb224;
+  padding: 0.5rem;
+  border: 1px solid #ddb224;
+  margin: 0 1rem;
+}
+
+.pagination a:hover, 
+.pagination a:active,
+.pagination a.active {
+  background-color: #ddb224;
+  color: white;
 }
 
 

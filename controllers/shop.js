@@ -1,18 +1,38 @@
 const Product = require('../models/product');
 const Order = require('../models/order');
+const JSONProduct = require('../models/json-products');
+
+const ITEMS_PER_PAGE = 10;
 
 exports.getProducts = (req, res, next) => {
+    const page = +req.query.page || 1;
+    console.log(page);
+    let totalItems;
     Product.find()
+        .countDocuments()
+        .then(numProducts => {
+            totalItems = numProducts;
+            return Product.find()
+                .skip((page - 1) * ITEMS_PER_PAGE)
+                .limit(ITEMS_PER_PAGE)
+        })
         .then(products => {
             res.render('shop/product-list', {
                 prods: products,
                 pageTitle: 'All Products',
-                path: '/products'
+                path: '/products',
+                currentPage: page,
+                hasNextPage: ITEMS_PER_PAGE * page < totalItems,
+                hasPreviousPage: page > 1,
+                nextPage: page + 1,
+                previousPage: page - 1,
+                lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE)
             });
         })
         .catch(err => {
             const error = new Error(err);
             error.httpStatusCode = 500;
+            console.log(error);
             return next(error);
         });
 };
@@ -147,3 +167,24 @@ exports.getOrders = (req, res, next) => {
         });
 };
 
+exports.getJSON = (req, res, next) => {
+    const page = +req.query.page || 1;
+    let totalItems;
+    JSONProduct.fetchAll((products) => {
+        totalItems = products.length;
+        const offset = ITEMS_PER_PAGE * (page - 1);
+        const paginatedProducts = products.slice(offset, ITEMS_PER_PAGE * page);
+        
+        res.render('shop/json-products', {
+            path: '/json-products',
+            pageTitle: 'JSON Products', 
+            prods: paginatedProducts,
+            currentPage: page, 
+            hasNextPage: ITEMS_PER_PAGE * page < totalItems,
+            hasPreviousPage: page > 1,
+            nextPage: page + 1,
+            previousPage: page - 1,
+            lastPage: Math.ceil(totalItems / ITEMS_PER_PAGE)
+        })
+    })
+};
